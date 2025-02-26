@@ -3,7 +3,6 @@ import copy
 
 import numpy as np
 import geomie3d
-import geomie3d.viz
 import ifcopenshell
 import ifcopenshell.geom
 import ifcopenshell.validate
@@ -59,10 +58,11 @@ def calc_vobj_height_width(xyzs: np.ndarray, zdir: list[float], ydir: list[float
         height = dists[0] + dists[1]
         width = dists[2] + dists[3]
         if viz == True:
+            from geomie3d import viz
             center_vert = geomie3d.create.vertex(center_xyz)
-            geomie3d.viz.viz([{'topo_list': [box], 'colour': 'blue'},
-                            {'topo_list': [center_vert], 'colour': 'red'},
-                            {'topo_list': intxs, 'colour': 'red'}])
+            viz.viz([{'topo_list': [box], 'colour': 'blue'},
+                     {'topo_list': [center_vert], 'colour': 'red'},
+                     {'topo_list': intxs, 'colour': 'red'}])
 
     elif dim_cond.size == 1:
         #  the bbox is just a surface
