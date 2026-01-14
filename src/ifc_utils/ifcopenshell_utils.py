@@ -817,7 +817,7 @@ def get_default_pset(pset_path: str, template_only: bool = False) -> dict:
     Returns
     -------
     dict
-        dictionary of the default pset json with the title as the key
+        dictionary of the default pset json with the title as the key.
     '''
     with open(pset_path) as f:
         pset_schema = json.load(f)
